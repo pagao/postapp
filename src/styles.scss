@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+$topColor: #1d3767;
+$btmColor: #01c5f1;
+$mbtm: 5px;
+
+body {
+  background-image: linear-gradient($topColor, $btmColor);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  //   align-items: c;
+}
