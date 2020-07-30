@@ -13,7 +13,7 @@ export class ApiService {
     // get all the posts;
     return this.http.get(`${baseApiUrl}posts?_start=0&_limit=10`);
   }
-  getPost(postId: string) {
+  getPost(postId: string): Observable<any> {
     return this.http.get(`${baseApiUrl}posts/${postId}`);
   }
   getAllCommentsForPost(postId: number) {
