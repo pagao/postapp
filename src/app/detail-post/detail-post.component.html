@@ -3,4 +3,15 @@
   <p>{{ valeur?.body }}</p>
   <p>{{ valeur?.id }}</p>
   <p>{{ valeur?.userId }}</p>
+  <button
+    (click)="seeComments(valeur?.id)"
+    class="btn btn-info"
+    style="justify-self: end;"
+  >
+    Comments
+  </button>
+
+  <div *ngFor="let item of liste_comment" style="margin-bottom: 3rem;">
+    <p>{{ item.body }}</p>
+  </div>
 </div>

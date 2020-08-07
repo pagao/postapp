@@ -16,7 +16,7 @@ export class ApiService {
   getPost(postId: string): Observable<any> {
     return this.http.get(`${baseApiUrl}posts/${postId}`);
   }
-  getAllCommentsForPost(postId: number) {
+  getAllCommentsForPost(postId: string): Observable<any> {
     return this.http.get(`${baseApiUrl}posts/${postId}/comments`);
   }
 }

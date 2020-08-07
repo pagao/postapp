@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';
-import { IPost } from '../interfaces/post.interface';
+import { Comment } from '../interfaces/comment.interface';
 
 @Component({
   selector: 'app-detail-post',
@@ -11,6 +11,7 @@ import { IPost } from '../interfaces/post.interface';
 })
 export class DetailPostComponent implements OnInit {
   public valeur: any;
+  public liste_comment: Comment[] = [];
   constructor(
     private activated: ActivatedRoute,
     private apiService: ApiService
@@ -24,5 +25,11 @@ export class DetailPostComponent implements OnInit {
 
   getDetail(postId: string) {
     this.apiService.getPost(postId).subscribe((value) => (this.valeur = value));
+  }
+
+  seeComments(postId: string) {
+    this.apiService.getAllCommentsForPost(postId).subscribe((data) => {
+      this.liste_comment.push(...data);
+    });
   }
 }
